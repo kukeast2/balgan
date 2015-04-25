@@ -1,0 +1,191 @@
+﻿<html>
+	<head>
+	<title>빨간출구</title>
+	<style>
+		body{
+			background-image: url('bg.png');
+			background-repeat: repeat;
+			background-size: 2000px;
+			background-position: 0px 0px;
+			background-attachment: fixed;
+			transition:0.1s;
+			font-family: 'NanumGothic';
+			font-size: 15px;
+			line-height: 18px;
+		}
+		a{
+			text-decoration: none;
+			color: #E60012;
+		}
+		#bal{
+			width: 600px;
+		}
+		.panel{
+			position:fixed;
+			left: 50px;
+			top: 50px;
+			cursor: move;
+		}
+		#menu{
+			background-color: white;
+			width: 100px;
+			position: fixed;
+			top: 350px;
+			left: 50px;
+			padding: 5px 18px;
+		}
+		#menu p{
+			color: #E60012;
+			cursor: pointer;
+			font-size: 1em;
+		}
+		.ti{
+			width: 650px;
+			position: fixed;
+			right: -500px;
+			bottom: 300px;
+			box-shadow: 2px 2px 2px 1px black;
+			transform: rotate(90deg);
+			transition: 0.5s;
+		}
+		#main{
+			width: 80%;
+			min-width: 600px;
+			position: absolute;
+			left: 250px;
+			top: 200px;
+		}
+		.ma{
+			max-width: 1000px;
+			width: 80%;
+			padding: 20px;
+			background-color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		function on () {
+			document.body.style.backgroundImage = 'url(bg1.png)';
+		}
+		function on1 () {
+			document.body.style.backgroundImage = 'url(bg2.png)';
+		}
+		function on2 () {
+			document.body.style.backgroundImage = 'url(bg.png)'; 
+		}
+		function cli () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="-500px";
+			t[0].style.bottom ="300px";
+			t[0].style.transform ="rotate(90deg)";
+			t[1].style.right ="-500px";
+			t[1].style.bottom ="300px";
+			t[1].style.transform ="rotate(90deg)";
+			t[2].style.right ="50px";
+			t[2].style.bottom ="50px";
+			t[2].style.transform ="rotate(0deg)";
+			
+		}
+		function cli1 () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="-500px";
+			t[0].style.bottom ="300px";
+			t[0].style.transform ="rotate(90deg)";
+			t[1].style.right ="50px";
+			t[1].style.bottom ="50px";
+			t[1].style.transform ="rotate(0deg)";
+			t[2].style.right ="-500px";
+			t[2].style.bottom ="300px";
+			t[2].style.transform ="rotate(90deg)";
+		}
+		function cli2 () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="50px";
+			t[0].style.bottom ="50px";
+			t[0].style.transform ="rotate(0deg)";
+			t[1].style.right ="-500px";
+			t[1].style.bottom ="300px";
+			t[1].style.transform ="rotate(90deg)";
+			t[2].style.right ="-500px";
+			t[2].style.bottom ="300px";
+			t[2].style.transform ="rotate(90deg)";
+		}
+	</script>
+	<script LANGUAGE="JavaScript">
+			N = (document.all) ? 0 : 1;
+			var ob;
+			var over = false;
+			function MD(e) {
+				if (over){
+					if (N) {
+						ob = document.getElementsByClassName("panel")[0];
+						X=e.layerX;
+						Y=e.layerY;
+						return false;
+					}
+					else {
+						ob = ob.style;
+						X=event.offsetX;
+						Y=event.offsetY;
+					}
+				}
+			}
+
+			function MM(e) {
+				if (ob) {
+					if (N) {
+						ob.style.top = e.pageY-Y;
+						ob.style.left = e.pageX-X;
+					}
+					else {
+						ob.pixelLeft = event.clientX-X + document.body.scrollLeft;
+						ob.pixelTop = event.clientY-Y + document.body.scrollTop;
+						return false;
+					}
+				}
+			}
+
+			function MU() {
+				ob = null;
+			}
+			document.onmousedown = MD;
+			document.onmousemove = MM;
+			document.onmouseup = MU;
+	</script>
+</head>
+<body>
+	<div id="main">
+		<img src="hot.jpg" class="ma">
+		<img src="hot2.jpg" class="ma">
+		<img src="balgan.jpg" class="ma">
+		<img src="balgan2.jpg" class="ma">
+		<img src="balgan6.jpg" class="ma">
+		<img src="balgan7.jpg" class="ma">
+		<img src="balgan8.jpg" class="ma">
+		<img src="balgan10.jpg" class="ma">
+		<img src="balgan12.jpg" class="ma">
+	</div>
+	<article>
+		<a href="http://hotaewon.xx.to"><img src="ti1.png" alt="no image" class="ti"></a>
+		<a href="bok.html"><img src="ti2.png" alt="no image" class="ti"></a>
+		<a href="ul.html"><img src="ti3.png" alt="no image" class="ti"></a>
+	</article>
+	<nav>
+		<div id="menu">
+			<p onmouseover="on()" onClick="cli()">얼기설기</p>
+			<p onmouseover="on1()" onClick="cli1()">복잡복잡</p>
+			<p onmouseover="on2()" onClick="cli2()">달라달라</p>
+			<p><a href="in.html" onmouseover="on()">INVITATION</a></p>
+			<p><a href="map.html" onmouseover="on1()">MAP</a></p>
+			<p><a href="img.html" onmouseover="on2()">IMAGE</a></p>
+		</div>
+	</nav>
+	<header>
+		<div class="panel" >
+			<div class="pamo" onmouseover='over=true;' onmouseout='over=false;'>
+				<img src="bal.png" alt="no image" id="bal">
+			</div>
+		</div>
+	</header>
+</body>
+</html>
+

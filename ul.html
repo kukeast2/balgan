@@ -1,0 +1,221 @@
+﻿<html>
+	<head>
+	<title>빨간출구</title>
+	<style>
+		body{
+			background-image: url('bg.png');
+			background-repeat: repeat;
+			background-size: 2000px;
+			background-position: 0px 0px;
+			background-attachment: fixed;
+			transition:0.1s;
+			font-family: 'NanumGothic';
+			font-size: 15px;
+			line-height: 18px;
+		}
+		a{
+			text-decoration: none;
+			color: #E60012;
+		}
+		#bal{
+			width: 600px;
+		}
+		.panel{
+			position:fixed;
+			left: 50px;
+			top: 50px;
+			cursor: move;
+		}
+		#menu{
+			background-color: white;
+			width: 100px;
+			position: fixed;
+			top: 350px;
+			left: 50px;
+			padding: 5px 18px;
+		}
+		#menu p{
+			color: #E60012;
+			cursor: pointer;
+			font-size: 1em;
+		}
+		.ti{
+			width: 650px;
+			position: fixed;
+			right: -500px;
+			bottom: 300px;
+			box-shadow: 2px 2px 2px 1px black;
+			transform: rotate(90deg);
+			transition: 0.5s;
+		}
+		#main{
+			width: 80%;
+			min-width: 600px;
+			position: absolute;
+		}
+		.bo{
+			position: fixed;
+			transition: 1s;
+			top: -400px;
+		}
+		.bo1{
+			position: fixed;
+			transition: 1s;
+			top: -400px;
+		}
+	</style>
+	<script type="text/javascript">
+		function on () {
+			document.body.style.backgroundImage = 'url(bg1.png)';
+		}
+		function on1 () {
+			document.body.style.backgroundImage = 'url(bg2.png)';
+		}
+		function on2 () {
+			document.body.style.backgroundImage = 'url(bg.png)'; 
+		}
+		function cli () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="-500px";
+			t[0].style.bottom ="300px";
+			t[0].style.transform ="rotate(90deg)";
+			t[1].style.right ="-500px";
+			t[1].style.bottom ="300px";
+			t[1].style.transform ="rotate(90deg)";
+			t[2].style.right ="50px";
+			t[2].style.bottom ="50px";
+			t[2].style.transform ="rotate(0deg)";
+			
+		}
+		function cli1 () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="-500px";
+			t[0].style.bottom ="300px";
+			t[0].style.transform ="rotate(90deg)";
+			t[1].style.right ="50px";
+			t[1].style.bottom ="50px";
+			t[1].style.transform ="rotate(0deg)";
+			t[2].style.right ="-500px";
+			t[2].style.bottom ="300px";
+			t[2].style.transform ="rotate(90deg)";
+		}
+		function cli2 () {
+			var t = document.getElementsByClassName('ti');
+			t[0].style.right ="50px";
+			t[0].style.bottom ="50px";
+			t[0].style.transform ="rotate(0deg)";
+			t[1].style.right ="-500px";
+			t[1].style.bottom ="300px";
+			t[1].style.transform ="rotate(90deg)";
+			t[2].style.right ="-500px";
+			t[2].style.bottom ="300px";
+			t[2].style.transform ="rotate(90deg)";
+		}
+	</script>
+	<script LANGUAGE="JavaScript">
+			N = (document.all) ? 0 : 1;
+			var ob;
+			var over = false;
+			function MD(e) {
+				if (over){
+					if (N) {
+						ob = document.getElementsByClassName("panel")[0];
+						X=e.layerX;
+						Y=e.layerY;
+						return false;
+					}
+					else {
+						ob = ob.style;
+						X=event.offsetX;
+						Y=event.offsetY;
+					}
+				}
+			}
+
+			function MM(e) {
+				if (ob) {
+					if (N) {
+						ob.style.top = e.pageY-Y;
+						ob.style.left = e.pageX-X;
+					}
+					else {
+						ob.pixelLeft = event.clientX-X + document.body.scrollLeft;
+						ob.pixelTop = event.clientY-Y + document.body.scrollTop;
+						return false;
+					}
+				}
+			}
+
+			function MU() {
+				ob = null;
+			}
+			document.onmousedown = MD;
+			document.onmousemove = MM;
+			document.onmouseup = MU;
+	</script>
+	<script type="text/javascript">
+		window.onload = function  () {
+			bobo();
+		}
+			function bobo () {
+				var b = document.getElementsByClassName('bo');
+				var b1 = document.getElementsByClassName('bo1');
+				var w = window.innerWidth;
+				var ww = w-300;
+				for (var i = 0; i < b.length; i++) {
+					b[i].style.left = Math.floor(Math.random()*ww+200)+'px';
+					;
+					b[i].style.transform = 'rotate('+Math.floor(Math.random()*40)+'deg)';
+					b1[i].style.left = Math.floor(Math.random()*ww+200)+'px';
+					;
+					b1[i].style.transform = 'rotate('+Math.floor(Math.random()*-40)+'deg)';
+					;
+				};
+			}
+		
+	</script>
+</head>
+<body>
+	<article>
+		<div id="main">
+			<img src="111.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="112.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="113.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="114.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="115.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="116.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="117.png" alt="no img" class="bo" onclick="bobo()">
+			<img src="118.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="119.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="120.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="121.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="122.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="123.png" alt="no img" class="bo1" onclick="bobo()">
+			<img src="124.png" alt="no img" class="bo1" onclick="bobo()">
+		</div>
+	</article>
+	<article>
+		<a href="http://hotaewon.xx.to"><img src="ti1.png" alt="no image" class="ti"></a>
+		<a href="index.html"><img src="ti2.png" alt="no image" class="ti"></a>
+		<a href="bal.html"><img src="ti4.png" alt="no image" class="ti"></a>
+	</article>
+	<nav>
+		<div id="menu">
+			<p onmouseover="on()" onClick="cli()">HOME</p>
+			<p onmouseover="on1()" onClick="cli1()">복잡복잡</p>
+			<p onmouseover="on2()" onClick="cli2()">달라달라</p>
+			<p><a href="in.html" onmouseover="on()">INVITATION</a></p>
+			<p><a href="map.html" onmouseover="on1()">MAP</a></p>
+			<p><a href="img.html" onmouseover="on2()">IMAGE</a></p>
+		</div>
+	</nav>
+	<header>
+		<div class="panel" >
+			<div class="pamo" onmouseover='over=true;' onmouseout='over=false;'>
+				<img src="bal.png" alt="no image" id="bal">
+			</div>
+		</div>
+	</header>
+</body>
+</html>
+
